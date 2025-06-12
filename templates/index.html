@@ -1,0 +1,76 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Generator</title>
+</head>
+Explain the SOLID principles in software engineering<body>
+    <h1>AI Text Generator</h1>
+    <textarea id="prompt" rows="4" cols="50">Write a short story about a robot learning to love.</textarea><br><br>
+    <button onclick="generateText()">Generate</button>
+
+    <h3>Response:</h3>
+    <pre id="response"></pre>
+
+    <script>
+        function generateText() {
+            const prompt = document.getElementById('prompt').value;
+            
+            // Make a POST request to the Flask API
+            fetch('http://127.0.0.1:5000/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt: prompt })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('response').textContent = data.response;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Generator</title>
+</head>
+<body>
+    <h1>AI Text Generator</h1>
+    <textarea id="prompt" rows="4" cols="50">Write a short story about a robot learning to love.</textarea><br><br>
+    <button onclick="generateText()">Generate</button>
+
+    <h3>Response:</h3>
+    <pre id="response"></pre>
+
+    <script>
+        function generateText() {
+            const prompt = document.getElementById('prompt').value;
+            
+            // Make a POST request to the Flask API
+            fetch('/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt: prompt })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('response').textContent = data.response;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
